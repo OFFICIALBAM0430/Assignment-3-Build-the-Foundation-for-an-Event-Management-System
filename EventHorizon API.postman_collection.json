@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "14bf5aa9-7e93-46cd-a867-c6410ce3ab0b",
+    "name": "EventHorizon API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57388415"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Moses\",\r\n    \"lastName\": \"Balogun\",\r\n    \"email\": \"balogunmoses98@gmail.com\",\r\n    \"password\": \"eventhorizon12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:your_port/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "your_port",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify Email",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:your_port/api/auth/verify-email?token=your_verification_token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "1500",
+              "path": [
+                "api",
+                "auth",
+                "verify-email"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "your_verification_token"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"balogunmoses98@gmail.com\",\r\n    \"password\": \"eventhorizon12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:your_port/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "your_port",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get Profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "your_jwt_token",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"balogunmoses98@gmail.com\",\r\n    \"password\": \"eventhorizon12\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:your_port/api/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "your_port",
+              "path": [
+                "api",
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile - No Token",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"balogunmoses98@gmail.com\",\r\n    \"password\": \"eventhorizon12\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:your_port/api/user/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "your_port",
+              "path": [
+                "api",
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Home Routes",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:your_port/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "your_port",
+          "path": [
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    }
+  ]
+}
