@@ -14,7 +14,7 @@ Features
 - User registration
 - Joi validation for registration and login data
 - Password hashing with bcryptjs
-- MongoDB database integration using Mongoose
+- MongoDB Atlas database integration using Mongoose
 - Email verification using Nodemailer
 - Time-sensitive email verification tokens
 - JWT-based login authentication
@@ -28,7 +28,7 @@ Technologies Used
 
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB Atlas
 - Mongoose
 - Joi
 - bcryptjs
@@ -79,7 +79,7 @@ Requirements
 Before running the project, make sure you have:
 
 - Node.js installed
-- A MongoDB database
+- A MongoDB Atlas database
 - A Gmail account configured with an App Password for sending verification emails
 
 Installation
@@ -103,14 +103,14 @@ Create a ".env" file in the project root.
 The application uses the following environment variables:
 
 PORT=4500
-EVENTHORIZONDB_URL=your_mongodb+serv_connection_string
+EVENTHORIZONDB_URL=your_mongodbatlas+serv_connection_string
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_gmail_address
 EMAIL_APP_PASSWORD=your_gmail_app_password
 
 Variable| Purpose
 "PORT"| Port used by the Express application
-"EVENTHORIZONDB_URL"| MongoDB+serv connection string
+"EVENTHORIZONDB_URL"| MongoDBAtlas+serv connection string
 "JWT_SECRET"| Secret used to sign and verify JWTs
 "EMAIL_USER"| Gmail account used to send verification emails
 "EMAIL_APP_PASSWORD"| Gmail App Password used by Nodemailer
