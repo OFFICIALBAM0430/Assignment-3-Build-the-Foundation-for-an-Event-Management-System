@@ -2,6 +2,13 @@ EventHorizon — Event Management System API
 
 EventHorizon is a backend API for an event management system. The project provides user registration, email verification, login authentication, and a protected user profile endpoint.
 
+[View Live API] (https://assignment-3-build-the-foundation-for-an.onrender.com)
+
+EventHorizon is deployed on Render and available for live API testing.
+
+Base URL:
+https://assignment-3-build-the-foundation-for-an.onrender.com
+
 Features
 
 - User registration
