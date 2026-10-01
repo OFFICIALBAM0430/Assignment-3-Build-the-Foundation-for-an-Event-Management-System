@@ -96,14 +96,14 @@ Create a ".env" file in the project root.
 The application uses the following environment variables:
 
 PORT=4500
-EVENTHORIZONDB_URL=your_mongodb_connection_string
+EVENTHORIZONDB_URL=your_mongodb+serv_connection_string
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_gmail_address
 EMAIL_APP_PASSWORD=your_gmail_app_password
 
 Variable| Purpose
 "PORT"| Port used by the Express application
-"EVENTHORIZONDB_URL"| MongoDB connection string
+"EVENTHORIZONDB_URL"| MongoDB+serv connection string
 "JWT_SECRET"| Secret used to sign and verify JWTs
 "EMAIL_USER"| Gmail account used to send verification emails
 "EMAIL_APP_PASSWORD"| Gmail App Password used by Nodemailer
@@ -114,7 +114,7 @@ Running the Application
 
 Start the development server with:
 
-npm run dev
+npm run dev or npm start
 
 The application uses port "4500" by default if "PORT" is not provided.
 
