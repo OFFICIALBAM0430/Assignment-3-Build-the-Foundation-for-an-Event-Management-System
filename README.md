@@ -2,12 +2,14 @@ EventHorizon — Event Management System API
 
 EventHorizon is a backend API for an event management system. The project provides user registration, email verification, login authentication, and a protected user profile endpoint.
 
-[View Live API] (https://assignment-3-build-the-foundation-for-an.onrender.com)
+ Live Deployment
+
+ "View Live API" (https://assignment-3-build-the-foundation-for-an.onrender.com)
 
 EventHorizon is deployed on Render and available for live API testing.
 
 Base URL:
-https://assignment-3-build-the-foundation-for-an.onrender.com
+"https://assignment-3-build-the-foundation-for-an.onrender.com"
 
 Features
 
@@ -103,25 +105,29 @@ Create a ".env" file in the project root.
 The application uses the following environment variables:
 
 PORT=4500
-EVENTHORIZONDB_URL=your_mongodbatlas+serv_connection_string
+EVENTHORIZONDB_URL=your_mongodb_atlas_connection_string
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_gmail_address
 EMAIL_APP_PASSWORD=your_gmail_app_password
 
 Variable| Purpose
 "PORT"| Port used by the Express application
-"EVENTHORIZONDB_URL"| MongoDBAtlas+serv connection string
+"EVENTHORIZONDB_URL"| MongoDB Atlas connection string
 "JWT_SECRET"| Secret used to sign and verify JWTs
 "EMAIL_USER"| Gmail account used to send verification emails
 "EMAIL_APP_PASSWORD"| Gmail App Password used by Nodemailer
 
-The ".env" file should not be committed to GitHub because it contains sensitive credentials.
+«Security: Never commit your ".env" file or expose your actual MongoDB Atlas connection string, JWT secret, or Gmail App Password on GitHub.»
 
 Running the Application
 
 Start the development server with:
 
-npm run dev or npm start
+npm run dev
+
+Or:
+
+npm start
 
 The application uses port "4500" by default if "PORT" is not provided.
 
@@ -142,10 +148,10 @@ POST /api/auth/register
 Request body:
 
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "john@example.com",
-    "password": "Password123"
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "password": "Password123"
 }
 
 The registration validator requires:
@@ -181,7 +187,7 @@ The verification token expires after 10 minutes.
 Successful response:
 
 {
-    "message": "Email verified successfully"
+  "message": "Email verified successfully"
 }
 
 Login
@@ -191,8 +197,8 @@ POST /api/auth/login
 Request body:
 
 {
-    "email": "john@example.com",
-    "password": "Password123"
+  "email": "john@example.com",
+  "password": "Password123"
 }
 
 The login request is validated with Joi.
@@ -210,8 +216,8 @@ A successful login returns a JWT.
 Example response:
 
 {
-    "message": "Login Successful",
-    "token": "YOUR_JWT_TOKEN"
+  "message": "Login Successful",
+  "token": "YOUR_JWT_TOKEN"
 }
 
 The JWT expires after 1 hour.
@@ -286,7 +292,12 @@ The implemented profile endpoint is:
 
 GET /api/user/profile
 
-The authentication middleware handles missing, invalid, and expired JWTs.
+The authentication middleware handles:
+
+- Missing JWT
+- Invalid JWT
+- Expired JWT
+- Invalid authorization format
 
 Error Handling
 
